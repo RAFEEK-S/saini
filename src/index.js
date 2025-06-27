@@ -4,11 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import UserProfile from './UserProfile';
+import Chips from './Chips';
+import OnOffButton from './OnOffButton';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <UserProfile />
+    <OnOffButton/>
   </React.StrictMode>
 );
 
