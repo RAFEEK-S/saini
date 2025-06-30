@@ -6,11 +6,15 @@ import reportWebVitals from './reportWebVitals';
 import UserProfile from './UserProfile';
 import Chips from './Chips';
 import OnOffButton from './OnOffButton';
+import TabsComponent from './TabsComponent';
+import CardCoursels from './CardCoursels';
+import Login from './Login';
+import Body from './components/Body'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <OnOffButton/>
+    <Body/>
   </React.StrictMode>
 );
 
