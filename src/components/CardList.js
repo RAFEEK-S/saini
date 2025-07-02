@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 
-const CardList = ({ recipes, addUser }) => {
+const CardList = ({ recipes, addUser,removeUser }) => {
   const [toggle, setToggle] = useState(true);
   const handleAddToCart = (recipes) => {
     addUser(recipes);
+  };
+  const handleRemoveCart = (recipes) => {
+    removeUser(recipes);
   };
   return (
     <div className="w-72 h-auto border border-spacing-3 space-y-2 text-xl rounded-lg ">
@@ -18,15 +21,21 @@ const CardList = ({ recipes, addUser }) => {
         {toggle ? (
           <button
             className="bg-slate-800 text-white py-2 px-2 rounded-lg"
-            onClick={() => {handleAddToCart(recipes);
+            onClick={() => {
+              handleAddToCart(recipes);
               setToggle(!toggle);
             }}
-            
           >
             Add To Cart
           </button>
         ) : (
-          <button className="bg-slate-800 text-white py-2 px-2 rounded-lg" onClick={() => setToggle(!toggle)} >
+          <button
+            className="bg-slate-800 text-white py-2 px-2 rounded-lg"
+            onClick={() => {
+           handleRemoveCart(recipes);
+              setToggle(!toggle);
+            }}
+          >
             Remove Cart
           </button>
         )}
