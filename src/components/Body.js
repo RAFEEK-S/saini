@@ -6,16 +6,20 @@ import recipes from '../components/recipesData'
 const Body = () => {
    const [recipesData, setRecipesData] = useState(recipes);
    const [cart,setCart] = useState([])
-   console.log(cart)
-   console.log(cart.length)
+   const [rating,setRating] = useState(null)
+   
+
 const addUser = (recipes) =>{
   setCart((prev) => [...prev,recipes])
   //adduser
 }
+const filteredRecipes = recipesData.filter((data) => (
+        (data.rating >= rating )
+))
   return (
     <div>
-      <Header recipesData={recipesData} />
-      <Card recipesData={recipesData} addUser={addUser}/>
+      <Header  setRating={setRating} cart={cart.length} />
+      <Card recipesData={filteredRecipes} addUser={addUser}/>
     </div>
   );
 }
