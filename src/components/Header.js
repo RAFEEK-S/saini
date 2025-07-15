@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 
 const Header = ({setRating,cart}) => {
@@ -10,7 +11,7 @@ const Header = ({setRating,cart}) => {
         <option value={4.7}>4.7</option>
         <option value={4.9}>4.9</option>
       </select>
-      <p>Items Added:{cart}</p>
+      <Link to="/DishList"><p>Items Added:{cart}</p></Link>
     </div>
   )
 }

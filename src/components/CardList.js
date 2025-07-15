@@ -1,13 +1,18 @@
-import  { useState } from "react";
-
+import  { useContext } from "react";
+import UserRecipes from "../utils/UserRecipes";
 const CardList = ({ recipes, addUser,removeUser }) => {
-  const [toggle, setToggle] = useState(true);
+
+  const{carts}=useContext(UserRecipes)
+  
+  const isInCart = carts.some(item => item.id === recipes.id)
+
   const handleAddToCart = (recipes) => {
     addUser(recipes);
   };
   const handleRemoveCart = (recipes) => {
     removeUser(recipes);
   };
+  
   return (
     <div className="w-72 h-auto border border-spacing-3 space-y-2 text-xl rounded-lg ">
       <img className="" alt="recipeimg" src={recipes.image} />
@@ -18,12 +23,12 @@ const CardList = ({ recipes, addUser,removeUser }) => {
           <li>{recipes.rating}</li>
           <li>{recipes.reviewCount}</li>
         </ul>
-        {toggle ? (
+        {!isInCart? (
           <button
             className="bg-slate-800 text-white py-2 px-2 rounded-lg"
             onClick={() => {
               handleAddToCart(recipes);
-              setToggle(!toggle);
+              
             }}
           >
             Add To Cart
@@ -33,7 +38,7 @@ const CardList = ({ recipes, addUser,removeUser }) => {
             className="bg-slate-800 text-white py-2 px-2 rounded-lg"
             onClick={() => {
            handleRemoveCart(recipes);
-              setToggle(!toggle);
+              
             }}
           >
             Remove Cart
@@ -42,6 +47,6 @@ const CardList = ({ recipes, addUser,removeUser }) => {
       </div>
     </div>
   );
-};
+};      
 
 export default CardList;

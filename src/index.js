@@ -12,9 +12,9 @@ import Login from "./Login";
 import Body from "./components/Body";
 import NestedArray from "./NestedArray";
 import Balance from './moneymanagement/Balance'
-
+import { BrowserRouter } from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Balance />);
+root.render(<BrowserRouter><Body /></BrowserRouter>);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
